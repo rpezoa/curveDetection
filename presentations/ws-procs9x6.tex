@@ -1,0 +1,571 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ws-procs9x6.tex   :   20-9-2004
+%% Text file for Proceedings Trim Size [9in x 6in] written in Latex2E.
+%% The content, structure, format and layout of this style file is the 
+%% property of World Scientific Publishing Co. Pte. Ltd. 
+%% Copyright 1995, 2002 by World Scientific Publishing Co. 
+%% All rights are reserved.
+%%
+%% Proceedings Trim Size: 9in x 6in
+%% Text Area: 7.35in (include runningheads) x 4.5in
+%% Main Text is 10/13pt					  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use \tbl{...} command for table caption i.e. to fit table width.
+%% Use \caption{...} command for figure caption.
+%\documentclass[draft]{ws-procs9x6}  
+\documentclass{ws-procs9x6}
+
+\begin{document}
+
+\title{Instructions for Producing a Camera-Ready Manuscript 
+using Latex for Publication in Conference 
+Proceedings\footnote{\uppercase{T}his work is supported by etc, etc.}}
+
+\author{C.~E. JIM and O. SPINAS\footnote{\uppercase{W}ork partially
+supported by grant 2-4570.5 of the \uppercase{S}wiss 
+\uppercase{N}ational \uppercase{S}cience \uppercase{F}oundation.}}
+
+\address{World Scientific Publishing Co., Inc, \\
+1060 Main Street, \\ 
+River Edge, NJ 07661, USA\\ 
+E-mail: wspc@wspc.com}
+
+\author{T.~R. SIMON, S. CLARKE and S.~N. GERALD}
+
+\address{World Scientific Publishing Co Ltd, \\ 
+57 Shelton Street, \\
+London WC2H 9HE, England\\
+E-mail: wspc@wspc.ox.uk}  
+
+\maketitle
+
+\abstracts{
+This is where the abstract should be placed. It should consist
+of one paragraph giving a concise summary of the material in 
+the article below.  Replace the title, authors, and addresses 
+within the curly brackets with your own title, authors, and
+addresses. You may have as many authors and addresses as you 
+like. It is preferable not to use footnotes in the abstract or 
+the title; the acknowledgments for funding bodies etc. are to 
+be placed in a separate section at the end of the text. Please see 
+the appendices too.}
+
+\section{Guidelines}
+\subsection{Producing the Hard Copy}\label{subsec:prod}
+The hard copy may be printed using the advice given in the file
+{\em procs-readme9x6$\_$2e.pdf}, which is repeated in this section. 
+Total there are seven files given.\footnote{You can obtain these files 
+from our WWW pages at:
+
+{\sf http://www.wspc.com.sg/style/proceedings\_style.shtml}}
+
+\begin{enumerate}
+\item {\em procs-readme9x6$\_$2e.pdf} --- the preliminary guide.
+
+\item {\em procs-instruction9x6$\_$2e.pdf} --- general instructions 
+for authors.
+
+\item{\em procs-fig1.eps} --- the figure/image file.
+
+\item{\em rotating$\_$pr.sty} --- sty file for landscape figures and tables.
+
+\item {\em ws-procs9x6.cls} --- the class file that provides the higher
+level latex commands for the proceedings. Don't change these parameters.
+
+\item {\em ws-procs9x6.tex} --- the main text. 
+
+\item {\em ws-procs9x6.pdf} --- sample pages of the above text.
+\end{enumerate}
+
+You can delete our sample text and replace it with your own 
+contribution to the volume, however we recommend that you keep an 
+initial version of the file for reference.  Strip off any mail 
+headers and then latex the tex file.  The command for latexing is 
+{\sf latex ws-procs9x6}, do this twice to sort out 
+the cross-referencing.
+
+If you wish to use some other form of word-processor, some 
+guidelines are given in Sec.~\ref{subsec:wpp} below.  These 
+files will work with standard latex2e. If there is an
+abbreviation defined in the new definitions at the top of the 
+file {\em ws-procs9x6.tex} that conflicts with one of your own 
+macros, then delete the appropriate command and revert to
+longhand. Failing that, please consult your local texpert to
+check for other conflicting macros that may be unique to your
+computer system.  Page numbers are included at the top of the
+page for your guidance. Do not worry about the final pagination
+of the volume which will be done after you submit the paper.
+
+\subsection{Using Other Word-Processing Packages}\label{subsec:wpp}
+If you want to use some other form of word-processor to
+construct your output, and you are using the final hard copy version
+of these files as guidelines; then please follow the style given
+here:- 
+
+\begin{romanlist}
+\item The title will be in 10~pt boldface and in uppercase; the leading or 
+$\backslash$baselineskip is on 13~pt. 
+
+\item The authors' names will be in 9~pt roman and in uppercase. 
+
+\item The addresses will be in 9~pt and $\backslash$baselineskip  
+is on 11~pt. 
+
+\item The abstract text will be in 8~pt and $\backslash$baselineskip is 
+on 10~pt.  It should be indented on both sides by 0.15~inch from 
+the main body of the text.
+
+\item All three section heads are in 10~pt:- 
+
+\noindent
+1st section heading is in boldface number run on to boldface
+title and to set in uppercase and lowercase.
+\eject
+
+\noindent
+2nd section heading is in boldface number run on to bold-italic
+title and to set in uppercase and lowercase.
+
+\noindent
+3rd section heading is roman number run on to italic title and
+to set in initial cap only.
+
+\item Figure captions is to set in 8~pt and $\backslash$baselineskip 
+is on 10~pt.
+
+\item Table caption, table column heads and table body text 
+is to set in 8~pt and $\backslash$baselineskip is on 10~pt. 
+
+\item Footnote text is to set in 8~pt and $\backslash$baselineskip 
+is on 10~pt.
+
+\item Reference text is to set in 9~pt and $\backslash$baselineskip 
+is on 11~pt.
+
+\end{romanlist}
+
+The proceedings trim size will be 9 by 6 inches; however you
+should submit your ms copy on standard A4 paper.  The text area 
+excluding page numbers should be 7 inches (textheight) by 
+4.5 inches (textwidth).  Paragraphs should have a first line indented 
+by about 0.25~inch except where the paragraph is preceded by a heading.
+
+It is also important to reproduce the spacing of the text and
+headings as shown here. Text should be slightly more than
+single-spaced; use a baselineskip (which is the average 
+distance from the base of one line of text to the base of 
+an adjacent line) of 13~pt and 10~pt for footnotes, table captions 
+and figure captions.
+
+\subsection{Headings, Text and Equations}
+Please preserve the style of the headings, text font and line 
+spacing in order to provide a uniform style for the 
+proceedings volume. 
+
+Equations should be centered and numbered consecutively, as in
+Eq.~(\ref{eq:murn}), and the {\em eqnarray} environment may be
+used to split equations into several lines, for example in
+Eq.~(\ref{eq:sp}), or to align several equations.  An alternative
+method is given in Eq.~(\ref{eq:spa}) for long sets of equations 
+where only one referencing equation number is wanted.
+
+In latex, it is simplest to give the equation a label, as in
+Eq.~(\ref{eq:murn}) where we have used 
+{\em $\backslash$label\{eq:murn\}} to identify the equation.
+You can then use the reference {\em $\backslash$ref\{eq:murn\}}
+when citing the equation in the text which will avoid 
+the need to manually renumber equations due to later changes. (Look at
+the source file for some examples of this.)
+
+The same method can be used for referring to sections 
+and subsections.
+
+\begin{sidewaystable}	
+\tbl{Sample statistics for A-share premia for Shanghai companies that 
+issued A- and B-shares before April 1994 (sample period: April 1, 
+1994--October 31, 1998). \label{table1}}
+{\begin{tabular}{@{}ccccccccc@{}}
+\hline
+\multicolumn{9}{c}{}\\[-2ex]
+Year &Taiwan &Dow Jones &Nikkei &South &London's &Hong Seng &Thailand's
+&Singapore's\\
+{} &Index &Index &Index &Korea's &FTSE &Index &Set Index &Strait Times\\
+{} &{} &{} &{} &Kospi &Index &{} &{} &{}\\
+{} &{} &{} &{} &Index &{} &{} &{} &{}\\[0.25ex]
+\hline
+\multicolumn{9}{c}{}\\[-2ex]
+1988 &5,119.11 &\phantom{0}2,168.57 &30,159.00 &907.20 &1,455.30
+&\phantom{0}2,687.44 &386.73 &1,038.62\\ 
+1989 &9,624.18 &\phantom{0}2,753.20 &38,915.87 &909.72 &1,916.60
+&\phantom{0}2,836.57 &879.19 &1,481.33\\
+1990 &4,530.16 &\phantom{0}2,633.70 &23,848.71 &696.11 &1,673.40
+&\phantom{0}3,243.30 &612.86 &1,154.48\\
+1991 &4,600.67 &\phantom{0}3,168.83 &22,983.77 &610.92 &1,891.30
+&\phantom{0}4,297.33 &711.36 &1,490.70\\
+1992 &3,377.06 &\phantom{0}3,301.11 &16,924.95 &678.44 &2,185.20
+&\phantom{0}5,512.39 &893.42 &1,524.40\\
+1993 &6,070.56 &\phantom{0}3,754.09 &17,417.24 &866.18 &2,559.50
+&11,888.39 &1,565.12\phantom{0.} &2,425.68\\
+1994 &7,124.66 &\phantom{0}3,834.44 &19,723.06 &1,027.37\phantom{0.}
+&3,065.50 &\phantom{0}8,191.04 &1,360.09\phantom{0.} &2,239.56\\
+1995 &5,173.73 &\phantom{0}5,117.12 &19,868.15 &882.94 &3,689.30
+&10,073.39 &1,280.81\phantom{0.} &2,266.54\\
+1996 &6,933.94 &\phantom{0}6,448.27 &19,361.35 &651.22 &4,118.50
+&13,451.45 &831.57 &2,216.79\\
+1997 &8,187.27 &\phantom{0}7,905.25 &15,258.74 &376.31 &5,135.50
+&10,722.76 &372.69 &1,529.84\\
+1998 &6,418.43 &\phantom{0}9,181.43 &13,842.17 &562.46 &5,882.60
+&10,048.58 &355.81 &1,392.73\\
+1999 &8,448.84 &11,497.12 &18,934.34 &1,028.07\phantom{0.} &6,930.20
+&16,962.10 &481.92 &2,479.58\\
+2000 &5,544.18 &10,971.14 &14,539.60 &514.48 &6,438.40 &14,895.34
+&271.84 &1,976.54\\ 
+1 &9,744.89 &10,940.53 &19,539.70 &943.88 &6,268.50 &15,532.34 &477.57
+&2,230.28\\
+2 &9,435.94 &10,128.31 &19,959.52 &828.38 &6,232.60 &17,169.44 &374.32
+&2,120.50\\
+3 &9,854.95 &10,921.92 &20,337.32 &860.94 &6,540.20 &17,406.54 &400.32
+&2,132.59\\
+4 &8,777.35 &10,733.91 &17,973.70 &725.39 &6,327.40 &15,519.30 &390.40
+&2,164.11\\
+5 &8,939.52 &10,522.33 &16,332.45 &731.88 &6,359.30 &14,713.86 &323.29
+&1,795.13\\
+6 &8,265.09 &10,447.89 &17,411.05 &821.22 &6,312.70 &16,155.78 &325.69
+&2,037.97\\
+7 &8,114.92 &10,521.98 &15,727.49 &705.97 &6,365.30 &16,840.98 &284.67
+&2,051.21\\
+%8 &7,616.98 &11,215.10 &16,861.26 &688.62 &6,672.70 &17,097.51 &307.83
+%&2,147.77\\[0.5ex]
+\hline
+\end{tabular}}
+\begin{tabnote}
+The state-budget funds as a dominant financial source of investment 
+of SOEs, regardless of investment decisions being made by governments 
+or enterprises. The retained profits and non-bank debts are also used by
+SOEs to finance their investment and operation.
+\end{tabnote}
+\end{sidewaystable}
+
+\subsection{Tables}
+The tables are designed to have a uniform style throughout the 
+paper. It does not matter how you choose to place
+the inner lines of the table, but we would prefer the border
+lines to be of the style shown in Table~\ref{table1}.  
+The top and bottom horizontal lines should be single 
+(using {\em $\backslash$hline}), and there should be single 
+vertical lines on the perimeter, (using 
+{\em  $\backslash$begin\{tabular\}\{$|...|$\}}).  For the inner
+lines of the table, it looks better if they are kept to a
+minimum. We've chosen a more complicated example purely as an 
+illustration of what is possible.
+
+An imaging experiment with OH$^+$ in CRYRING led to discovery of a
+very small kinetic energy release when the electron energy was
+sufficient for the ${\rm O}(^3P) + {\rm H}(n=2)$ dissociation limit
+(see Table~\ref{table2}) to become energetically allowed.
+
+\looseness1 The caption heading for a table should be placed at the
+top of the table.
+
+\begin{table}[ph]
+\tbl{First five normalized natural frequencies. The discovery of a 
+very small kinetic energy.}
+{\footnotesize
+\begin{tabular}{@{}crrrr@{}}
+\hline
+{} &{} &{} &{} &{}\\[-1.5ex]
+{} & $A=0.56$ & $B=0.69$ & $C=0.75$ & $D=0.100$\\[1ex]
+\hline
+{} &{} &{} &{} &{}\\[-1.5ex]
+$AB_1$ &14.0640 &18.5620 &22.0817 &18.90732\\[1ex]
+$AC_2$ &61.6728 &44.7844 &44.5884 &60.17496\\[1ex]
+$AD_3$ &88.1380 &118.1564 &101.2240 &120.72693\\[1ex]
+$DB_4$ &199.8594 &173.1269 &194.4907 &188.75258\\[1ex] 
+$DA_5$ &246.7889 &255.9483 &284.6633 &262.24264\\[1ex]
+\hline
+\end{tabular}\label{table2} }
+\vspace*{-13pt}
+\end{table}
+
+\subsection{Figures/Illustrations/Images}
+Authors are advised to prepare their figures in black and white. 
+Please prepare the figures in high resolution (300 dpi) for half-tone 
+illustrations or images. Half-tone pictures must be sharp enough 
+for reproduction, otherwise they will be rejected.
+
+Colour images are allowed only when they are stated in the 
+publishing agreement. The colour images must be prepared in CMYK 
+(Cyan, Magenta, Yellow and Black). RGB colour images are not acceptable 
+for colour\break
+separation.
+
+It is best to embed the figures in the text where they are first
+cited, e.g. see Figure~\ref{inter}. Please ensure that all labels in the
+figures are legible irregardless of whether they are drawn
+electronically or manually.
+
+If you wish to `embed' a postscript figure in the file, then remove
+the \% mark from the declaration of the postscript figure 
+{\em epsfbox} within the figure description and change the filename 
+to an appropriate one. Also remove the comment \% mark from the 
+{\em epsfxsize} command and specify the required width of the figure.
+System will automatically enlarge or reduce the figure based on the
+{\em x-size} provided with {\em epsfxsize} command.  You may need to
+play around with this as different computer systems appear to use
+different commands. If you like to have an empty box size to the image
+you can just fill in the {\em x, y size} against the command 
+{\em figurebox}, which has three arguments. The third argument is 
+for actual figure name.
+
+\begin{figure}[ht]
+%\epsfxsize=10cm   %width of figure - will enlarge/reduce the figures
+%\epsfbox{fig3.eps}
+%\figurebox{2cm}{3cm}{} %to have a box alone 
+\centerline{\epsfxsize=4.1in\epsfbox{procs-fig1.eps}}   
+\caption{First 3 normalized frequencies versus release location for
+clamped simply supported beam with internal slide
+release. \label{inter}}
+\end{figure}
+
+Next adjust the scaling of the figure until it is correctly 
+positioned, and remove the declarations of the lines and any 
+anomalous spacing.
+
+If you prefer to submit glossy prints of figures, then it is very 
+important to leave sufficient blank spaces in your manuscript 
+to accommodate your figures. Send the hard copy of the figures 
+on separate pages with clear instructions on where to match 
+them to the repsective blank spaces in the final hard copy 
+text. Please ensure that each figure is correctly
+scaled (ensure legibility) to fit the space available.
+
+The caption heading for a figure should be placed below
+that figure.
+
+\subsection{Limitations on the Placement of Tables, 
+Equations and Figures}\label{sec:plac}
+Very large figures and tables should be placed on a page by themselves. One
+can use the instruction {\em $\backslash$begin\{figure\}$[$h$]$} or
+{\em $\backslash$begin\{table\}$[$h$]$}
+to position these, and they will appear on a separate page devoted to
+figures and tables. We would recommend making any necessary
+adjustments to the layout of the figures and tables
+only in the final draft. It is also simplest to sort out line and
+page breaks in the last stages.
+
+\subsection{Acknowledgments, Appendices and the Bibliography}
+If you wish to acknowledge funding bodies etc., 
+the acknowledgments may be placed in a separate section at the end of the
+text, before the Appendices. This should not be numbered so use
+{\em $\backslash$section$\ast$\{Acknowledgments\}}.
+
+It is preferable not to have Appendices in a brief article, but if
+more than one Appendix is necessary then set headings as Appendix~A,
+Appendix~B, etc. It is to type as 
+{\em $\backslash$section$\ast$\{Appendix~A\}}.
+
+\subsubsection{Footnotes and the citation}
+Footnotes are denoted by a character superscript
+in the text,\footnote{Just like this one.} and references
+are denoted by a number superscript.
+We have used {\em $\backslash$bibitem} to produce the bibliography.
+Citations in the text use the labels defined in the bibitem declaration,
+for example, the first paper by Jarlskog\cite{ja} is cited using the command
+{\em $\backslash$cite\{ja\}}.
+
+If you use square brackets for citation e.g. [2] please note that  
+the citation should appear before the punctuation mark, 
+e.g. [2], in the body text. 
+
+\subsection{Final Manuscript}
+The final hard copy that you submit must be absolutely clean and unfolded.
+It will be printed directly without any further editing. Use a printer
+that has a good resolution printout (600 dpi or higher). There should
+not be any corrections on the printed pages, nor should adhesive
+tape cover any lettering. Photocopies are not acceptable.
+
+Your manuscript will not be reduced or enlarged when filmed so please
+ensure that indices and other small pieces of text are legible.
+
+\section{Sample Mathematical Text}
+
+To begin with let us write down the covariant Dirac equation in a
+curved spacetime, for a massless spinor field $\Psi $, which is given
+by
+\begin{equation} 
+[i\gamma^\mu(x)\partial_\mu+i\gamma^\mu(x)\Gamma_\mu(x)]\Psi(x)=0\,,
+\label{eq:murn}
+\end{equation}
+where $\gamma^\mu(x)$ are the generalized Dirac matrices and are given
+in terms of the standard flat space Dirac matrices $\gamma^{(a)}$ as
+\begin{equation} 
+\gamma^\mu(x)=e_{(a)}^\mu(x)\gamma^{(a)}\,,
+\label{eq:sp}
+\end{equation}
+where $e_{(a)}^\mu(x)$ are tetrad components defined by
+\begin{equation} 
+e_{(a)}^\mu e_{(b)}^\nu\eta^{(a)(b)}=g^{\mu\nu}\,.
+\label{eq:spa}
+\end{equation}
+Here and in what follows Greek indices are connected with tensor world
+indices (coordinate basis system) and Latin indices denote Lorentz
+indices which are connected with a local Minkowski coordinate system
+(tetrads).
+
+We can bring down powers of $q(t)$ as follows:
+\begin{eqnarray} 
+e^{\int dt q(t)} &=&1+\int_0^a dt'q(t')
++\int_0^a dt'\int_0^{t'}dt''q(t')q(t'')\nonumber\\[5pt]
+&&+\,\int_0^a dt'\int_0^{t'}dt'''\int _0^{t''}dt'''q(t')q(t'')q(t''')\,.
+\end{eqnarray}
+The leading ``1'' will be assumed not to contribute anything. This is
+equivalent to setting $\langle kn\cdots\rangle=0$ when there are
+no $q$'s. Also the order of the $J^A(t)$'s has to be preserved after
+making contractions of $q^A(t)$ with $kn$'s.
+
+\begin{theorem} \label{theos}
+Let $V$ be a closed complex analytic subvariety of a complex
+hyperbolic space form of finite volume$.$ Then the Gauss mapping for
+$V$ is non-degenerate unless $V$ is totally geodesic$.$
+\end{theorem}
+
+Let $V$ be a $k$-dimensional complex submanifold of ${\mathbb P}^n$
+and $\gamma: V\rightarrow {\mathbb G}(k,n)$ be the Gauss mapping. At a
+point $x\in V$, Lemma~\ref{ste} let $\hat{T}_x(V)$ be the $(k +
+1)$-dimensional affine tangent space of $V$ at $x$ so that the tangent
+space of $V$.
+
+\begin{lemma}  \label{ste}
+There exists a point $(a;b)\in \Delta^m\times {\mathbb C}^l$ and an
+open neighborhood $W$ of $(a;b)$ such that $F(a;b)\in \partial 
+{\mathbb B}^n$. A closed complex analytic subvariety of 
+a complex torus has degenerate Gauss mapping if and only 
+if it is invariant under the translation by a complex subtorus.
+\end{lemma}
+
+Let $F$ be a symmetric and reflexive Borel relation on the standard
+Borel space $X$. $F$ is {\it locally finite} if for all $x\in X,
+F(x)=\{y\in X: yFx\}$ is finite.
+
+\section*{Acknowledgments}
+This is where one acknowledge funding bodies etc.  Note that section
+numbers are not required for Acknowledgments, Appendix or References.
+
+\appendix
+
+\section{First Appendix}
+
+Appendices should be used only when absolutely necessary. They
+should come before the References. If there is more than one
+appendix, number them alphabetically. Number displayed equations
+occurring in the Appendix in this way, e.g.~(\ref{appen1}), (A.2),
+etc.
+\begin{equation}
+\mu(n, t) = \frac{\sum^\infty_{i=1} 1(d_i < t, 
+N(d_i) = n)}{\int^t_{\sigma=0} 1(N(\sigma) = n)d\sigma}\,. \label{appen1}
+\end{equation}
+
+\section{Second Appendix}
+
+References in the text are to be numbered consecutively in Arabic
+numerals, in the order of first appearance. They are to be typed in
+superscripts after punctuation marks, e.g.
+
+(1) $ \qquad $ ``$\ldots$ in the statement.\cite{xyan}''
+
+(2) $ \qquad $ ``$\ldots$ have proven\cite{bu}\cdash\cite{xyan} 
+that this equation $\ldots$''
+
+\noindent
+This is done using the command: ``$\backslash$cite\{name\}''.
+
+When the reference forms part of the sentence it should not 
+be superscripts, e.g.
+
+(1) $ \qquad $  ``One can deduce from Ref.~\refcite{ppz} that $\ldots$''
+
+(2) $ \qquad $  ``See Refs.~\refcite{ja}--\refcite{ma}, \refcite{bu} 
+and \refcite{xyan} for more details.'' 
+
+(3) $ \qquad $  ``We refer the readers to Ref.~\refcite{xyan}.''
+
+\noindent
+This is done using the command: ``Ref.$\sim$$\backslash$refcite\{name\}''.
+
+\vspace*{8pt}
+\noindent
+(Alternatively you may opt to use the default square bracket [\ ] 
+citation throughout.)
+
+\section{Footnotes}
+Footnotes should be numbered sequentially in superscript lowercase
+roman letters.\footnote{Footnotes should be typeset in 8~pt Times
+roman at the bottom of the page.}
+
+\section{Standard Abbreviations}
+\begin{alphlist}[(d)]
+\item Do not abbreviate the first word of any sentence: 
+
+$ \qquad $ ``Figure~2 shows us $\ldots.$''
+
+\item Some abbreviation:
+
+$ \qquad $ ` figure ' $ \, $ = $ \, $  ` Fig. '
+
+$ \qquad $ ` figures ' $ \, $ = $ \, $ ` Figs. '
+
+$ \qquad $ ` equation ' $ \, $ = $ \, $ ` Eq. '
+
+$ \qquad $ ` equations ' $ \, $ = $ \, $ ` Eqs. '
+
+$ \qquad $ ` Section~5 ' $ \, $ = $ \, $ ` Sec.~5 '
+
+$ \qquad $ ` Sections~5 and 6 ' $ \, $ = $ \, $ ` Secs.~5 and 6 '
+
+$ \qquad $ ` for example ' = ` e.g. '
+
+\noindent
+Note that the first letter is capitalized. There is also a dot. 
+
+\item When it is not appropriate, DO NOT abbreviate. Hence the word `Table'
+is not abbreviated. We also do not write `Eq. of motion'.
+
+\item Depends on authors' preference, sometimes ` Eq. ' and ` Eqs. '
+are not used at all because it is understood that it is an equation.
+For example,  
+
+\begin{center}
+We can see a summation and an integration in (\ref{appen1}).
+\end{center}
+\end{alphlist}
+
+\section{Single Quotation and Double Quotations}
+Use double quotation when possible so that there are fewer mix-ups with
+differentiation and `prime'. For quotation within a 
+quotation you may use the single-quotation.
+
+Open-quotation ` is located at the top left-hand corner of the keyboard.
+Close-quotation ' is near the ENTER-key of the keyboard.
+
+\begin{thebibliography}{0}
+\bibitem{ja} M. Barranco and J. R. Buchler, {\it Phys. Rev.}
+{\bf C34}, 1729 (1980).
+
+\bibitem{ppz} G. Pang and H. Zhao, {\it J. Phys. A: Math. Gen.}  
+{\bf 25}, L527 (1992).
+
+\bibitem{ma} H. M\"uller and B. D. Serot, {\it Phys. Rev.} {\bf C52}, 
+2072 (1995).
+
+\bibitem{bu} V. Baran, M. Colonna, M. Di Toro and A. B. Larionov, 
+{\it Nucl. Phys.} {\bf A632}, 287 (1998).
+
+\bibitem{bd} V. Baran, M. Colonna, M. Di Toro and V. Greco, 
+{\it Phys. Rev. Lett.} {\bf 86}, 4492 (2001).
+
+\bibitem{xyan} X. Yan, {\it Phys. Rev.} {\bf E61}, 4745 (2000).
+
+\end{thebibliography}
+
+\end{document}
