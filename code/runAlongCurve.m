@@ -1,11 +1,21 @@
 function [arcLength]=runAlongCurve(inputimage,t,p,isGray)
-% inputimage: a RGB image or a gray image
+% inputimage: name of a RGB or gray image
 % t: threshold of the image
 % p: if p=1 the the points will be plot
 % isGray: if isGray=1, the input image is gray, if isGray=0, the image is
 % not gray so the conversion to gray is performed.
+%
+% This function runs along the curve and generate a table with the values
+% of x and y coordinates and the respective arc length to the pair (x,y).
+% The obtained table has the following structure:
+%
+%       arcLength(:,1)= x coordinates;
+%       arcLength(:,2)= y coordinates;
+%       arcLength(:,3)= arc length;
+%       
+% Example of execution:
+% [alTable]=runAlongCurve('nefroide.png',150,1,0);
 
-% inputimage: name of the image
 if ~isGray
     im=imread(inputimage);
     imgris=rgb2gray(im);
@@ -13,16 +23,10 @@ else
     imgris=inputimage;
 end
 
-
-
 % show figure
 figure;
 imshow(imgris);
 hold on;
-
-%[a,b]=find(imgris ~= 255);
-%size(a,1)
-%arcLength=zeros(size(a,1),9);
 
 % Find first pixel P0 
 [x0,y0]=findFirstPixel(imgris,t);
