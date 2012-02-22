@@ -12,6 +12,7 @@ function [arcLength]=runAlongCurve(inputimage,t,p,isGray)
 %       arcLength(:,1)= x coordinates;
 %       arcLength(:,2)= y coordinates;
 %       arcLength(:,3)= arc length;
+%       arcLength(:,4)= distance between adjacent points;
 %       
 % Example of execution:
 % [alTable]=runAlongCurve('nefroide.png',150,1,0);
