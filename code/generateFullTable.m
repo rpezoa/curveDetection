@@ -1,4 +1,21 @@
 function [alTable,M,Mag1,Angulos,magx,magy,newIm,Px_5,Py_5,ab5,newCurv] = generateFullTable(nameImage)
+% nameImage: name of of a RGB image
+% This function generate a table with the following information:
+%       arcLength(:,1)= x coordinates;
+%       arcLength(:,2)= y coordinates;
+%       arcLength(:,3)= arc length;
+%       arcLength(:,4)= current arc length;
+%       arcLength(:,5)= curvature;
+%       arcLength(:,6)= magnitude of gradient;
+%       arcLength(:,7)= gradient direction
+%       arcLength(:,8)= difference of angles of the gradient
+%       arcLength(:,9)= difference of gradients
+%       arcLength(:,10)= x coordinate of gradient;
+%       arcLength(:,11)= y coordinate of gradient;
+%       arcLength(:,12)= magnitud of gradient (other way that I have to understand);
+%       arcLength(:,13)= curvature (other way that I have to understand);
+% Example of execution:
+% [alTable] = generateFullTable('nefroide.png');
 
 newIm=imread(nameImage);
 newIm=rgb2gray(newIm);
@@ -86,27 +103,25 @@ ylabel('y(s)');
 
 
 figure;
-subplot(3,1,1); plot(alTable(:,3),alTable(:,5), '*');
+subplot(4,1,1); plot(alTable(:,3),alTable(:,5), '*');
 title('Curvature: "sqrt((Px_{post} - 2* Px + Px_{pre})^2 +  (Py_{post} - 2* Py + Py_{pre})^2)"');
 xlabel('s (arc length)');
 ylabel('curvature(s)');
 
-subplot(3,1,2);plot(alTable(:,3),alTable(:,8), '*');
+subplot(4,1,2); plot(ab5,newCurv, '*');
+title('Curvature using a neighborhood');
+xlabel('s (arc length)');
+ylabel('curvature(s)');
+
+subplot(4,1,3);plot(alTable(:,3),alTable(:,8), '*');
 title('Diferencia de Angulos');
 xlabel('s (arc length)');
 ylabel('Dif. angles');
 
-subplot(3,1,3);plot(alTable(:,3),alTable(:,9));
+subplot(4,1,4);plot(alTable(:,3),alTable(:,9));
 title('Diferencia de Gradiente');
 xlabel('s (arc length)');
 ylabel('Dif. grad.');
-
-
-%figure; % diferencia de angulos
-%plot(alTable(:,3),alTable(:,8), 'g');
-%hold on;
-
-%hold on;
 
 figure; % curvatura
 plot(alTable(:,3),alTable(:,12), 'm');
