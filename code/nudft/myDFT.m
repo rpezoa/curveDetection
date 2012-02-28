@@ -1,6 +1,6 @@
 function [X] = myDFT(x,t)
 % x: input signal
-
+% t: vector of time
 disp('Calculating DFT ::: ');
 
 N = length(x);
@@ -24,7 +24,7 @@ else
         for i=1:N % fijo el k
             X(k)= x(i)* exp(-1j*2*pi*(t(k))*t(i)/N) + X(k);
         end
-        %X(k)=X(k)/N;
+        %X(k)=X(k)/N;        
     end
 end
     

@@ -1,7 +1,7 @@
-function [X] = myInvDFT(X,t)
+function [x] = myInvDFT(X,t)
 % x: input signal
 
-disp('Calculating DFT ::: ');
+disp('Calculating IDFT ::: ');
 
 N = length(X);
 
@@ -19,8 +19,9 @@ if t == 0
 else
     for n=1:N % (indice para el vector de la señal x)
         for m=1:N %(indice para el vector de la frecuencia)
-            x(n) = X(m)*exp(1j*2*pi*(t(m))*(m-1)/N) + x(n);
+            x(n) = X(m)*exp(1j*2*pi*t(m)*t(n)/N) + x(n);
         end
+        x(n)=x(n)/N;
     end
 end
     
