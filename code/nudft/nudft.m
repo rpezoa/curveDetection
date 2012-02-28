@@ -15,12 +15,13 @@ end
 % the k index indicates the frequency and the i index indicates the
 % ith-sample
 
-T=t(N);
+T=16
 deltaK=2*pi/T;
 
 for k=1:N
     for i=1:N
-        X(k)= x(i)* exp(-1j*(k-1)*deltaK*t(i)) + X(k);
+        
+        X(k)= x(i)* exp(-1j*deltaK*(k-1)*t(i)) + X(k);
     end
-    X(k)=X(k)/N;
+    disp(['k: ',num2str(k)])
 end
