@@ -55,10 +55,12 @@ myInvDiscreteFourierT = myInvDFT(myDiscreteFourierT,0);
 myInvDiscreteFourierT_sub = myInvDFT(myDiscreteFourierT_sub,0);
 invDiscreteFourierT= ifft(discreteFourierT);
 invDiscreteFourierT_sub= ifft(discreteFourierT_sub);
+invNUDFT = ifft(nuDFT);
+%invNUDFT = myInvDFT(nuDFT,-8:2:8);
 
 figure;
-plot(-(N-1)/2:1:(N-1)/2,invDiscreteFourierT,'b',-(N-1)/2:1:(N-1)/2,myInvDiscreteFourierT,'*r');
-legend('ifft reg', 'myInvDFT reg.');
+plot(-(N-1)/2:1:(N-1)/2,invDiscreteFourierT,'b',-(N-1)/2:1:(N-1)/2,myInvDiscreteFourierT,'r',  -8:2:8,invDiscreteFourierT_sub,'om',  -8:2:8,invNUDFT,'g');
+legend('ifft reg', 'myInvDFT reg.', 'ifft sub', 'myInvDFT(NUDFT)');
 
 %nuDFT= nudft(x_irr,t_irr);
 %subplot(2,2,4);
