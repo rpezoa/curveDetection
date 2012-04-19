@@ -1,0 +1,323 @@
+\documentclass{beamer}
+
+
+\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
+
+\usetheme{Warsaw}
+%\usecolortheme{crane}
+\usefonttheme[onlysmall]{structurebold}
+\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
+%\setbeamercolor{title}{fg=red!80!black}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx}
+\usepackage{supertabular}
+\usepackage[latin1]{inputenc}
+\usepackage{gensymb}
+
+\usepackage{colortbl}
+\usepackage{listings}
+\setbeamercovered{dynamic}
+%\usepackage[spanish]{babel}
+\usepackage[spanish,english]{babel}
+\selectlanguage{english}
+
+\title[Image Processing]{Image Processing}
+\author[R. Pezoa]{%
+  Raquel~Pezoa}
+\institute[Universidad T\'ecnica Federico Santa Mar\'ia]{
+  %
+  Departamento de Inform\'atica\\
+  Universidad T\'ecnica Federico Santa Mar\'ia
+}
+\date[Abril 2012]{Abril 2012}
+\subject{Seminario}
+
+
+
+%\pgfdeclareimage[opciones]{nombre de imagen}{nombre del archivo, sin extension}
+
+\pgfdeclareimage[width = 0.5\textwidth]{ihc1}{img/ihc1}
+\pgfdeclareimage[width = 0.8\textwidth]{ihc1-det}{img/ihc1-det}
+\pgfdeclareimage[width = 0.5\textwidth]{nefroide}{img/nefroide}
+\pgfdeclareimage[width = 0.5\textwidth]{mix}{img/mix}
+\pgfdeclareimage[width=5cm]{normalForm}{img/normalForm}
+\pgfdeclareimage[width=4cm]{fakeImage}{img/fakeImage}
+\pgfdeclareimage[width=5cm]{curve}{img/curve}
+\pgfdeclareimage[width=4.5cm]{ellipse}{img/ellipse}
+%nombre de ambientes en español
+%\newtheorem{theorem2}{Teorema}
+%\newtheorem{example2}{Ejemplo}
+%\newtheorem{definition2}{Definición} 
+
+
+\begin{document}
+  
+  \frame{\titlepage}
+  
+% \section*{Outline} 
+% \begin{frame}
+%   \frametitle{Outline}
+%   \tableofcontents
+% \end{frame}
+
+\begin{frame}
+  \frametitle{Image Segmentation IHC-images}
+
+\begin{figure}
+\centering
+\pgfuseimage{ihc1}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Image Segmentation IHC-images}
+
+\begin{figure}
+\centering
+\pgfuseimage{ihc1-det}
+\end{figure}
+\textcolor{blue}{How can we complete (generate a curve) for the membrane that we do not see?}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Hough Transform}
+  \begin{itemize}
+  \item Let's remember (a bit) the HT:
+\begin{itemize}
+  \item The representation of a line as the normal-form,
+   considers a point $(x,y)$ as a function of an angle normal
+    to the line, passing through the origin of the image:
+    \begin{equation}
+      \rho = x  \cos\theta + y \sin\theta
+    \end{equation}
+\end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Normal-form Representation}
+\begin{columns}
+\column{0.5\textwidth}
+  \begin{figure}
+    \pgfuseimage{normalForm}
+    \caption{Polar consideration of a line.}
+    \label{fig:polarLine}
+  \end{figure}
+\column{0.5\textwidth}
+
+  $$\rho = x  \cos\theta + y \sin\theta$$
+
+
+$\theta$: angle of the line normal to the line in an image
+
+$\rho$: length between the origin and the point where the lines
+intersect.
+
+This gives a form of the HT for lines known as the \emph{polar HT for
+  lines.}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{figure}
+      \pgfuseimage{fakeImage}
+      \caption{Simple line.}
+      \label{fig:fakeLine}
+    \end{figure}
+    \column{0.5\textwidth}
+    \begin{figure}
+      \pgfuseimage{curve}
+      \caption{Hough Transform of the line.}
+      \label{fig:HTPolar}
+    \end{figure}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{HT for Circles}
+  \begin{itemize}
+  \item The parametric form of a circle is:
+    \begin{equation}
+      \begin{array}{c c}
+      x=x_{0}+r\cos{\theta} &y=y_{0}+r\sin{\theta}
+      \end{array}
+      \label{eq:circle2}
+    \end{equation}
+
+  \item The HT    mapping is:
+    \begin{equation}
+      \begin{array}{c c}
+      x_{0}=x-r\cos{\theta} &y_{0}=y-r\sin{\theta}
+      \end{array}
+    \end{equation}
+
+    \item These equations define the points in the accumulator space
+      dependent of the radius $r$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Implementation}
+  \tiny{\begin{verbatim} 
+function [acc] = HTCircle(im,r)
+% im is a binary image
+[rows,columns]=size(im);
+acc=zeros(rows,columns);
+for x=1:columns
+    for y=1:rows
+        if(im(y,x)==1)
+            for ang=0:360
+                t=(ang*pi)/180;
+                x0=round(x-r*cos(t));
+                y0=round(y-r*sin(t));
+                if(x0 < columns && x0 >0 && y0 <rows && y0>0)
+                    acc(y0,x0)=acc(y0,x0)+1; % accumulator is 2D, fixed value of r
+                end
+            end
+        end
+    end
+end\end{verbatim}}
+\textcolor{blue}{Here, only is consider a fixed r!}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{HT for Ellipses}
+
+The parametric functions of the ellipse are:
+
+$$\begin{bmatrix}x(\theta) \\ y(\theta) \end{bmatrix} = \lambda \begin{bmatrix} \cos \rho & \sin \rho \\ -\sin \rho &\cos \rho \end{bmatrix} \begin{bmatrix} a \cos \theta \\ b \sin \theta \end{bmatrix}$$
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{HT for Ellipses}
+  \begin{itemize}
+  \item It is possible to define a mapping between the circle and an
+  ellipse by a transformation:
+
+  \begin{equation}
+    \begin{bmatrix} x \\ y\end{bmatrix} = \begin{bmatrix} \cos(\rho) &\sin(\rho) \\ -\sin(\rho) & \cos(\rho) \end{bmatrix} \begin{bmatrix} S_{x} x' \\ S_{y}y'\end{bmatrix} + \begin{bmatrix} t_{x} \\ t_{y}\end{bmatrix}
+        \label{eq:ellipse}
+  \end{equation}
+  $(x',y')$: coordinates of he circle
+
+  $\rho$: represents de orientation
+
+  $(S_{x},S_{y})$: scale factor
+
+  $(t_{x},t_{y})$: translation
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{HT for Ellipses}
+
+  \begin{itemize}
+  \item If we define:
+    \begin{equation}
+      \begin{array}{c}
+        a_{0}=t_{x} \ \ \  a_{x}=S_{x}\cos(\rho) \ \ \  b_{x}=S_{y}\sin(\rho)\\
+        
+        b_{0}=t_{y} \ \ \  a_{y}=S_{y}\sin(\rho)\ \ \  b_{y}=S_{y}\cos(\rho)
+      \end{array}
+    \end{equation}
+
+  \item The circle is \emph{deformed} into:
+
+    \begin{equation}
+      \begin{array}{c}
+        x=a_{0}+a_{x}\cos(\theta)+b_{x}\sin(\theta)\\
+        
+        y=b_{0}+a_{y}\cos(\theta)+b_{y}\sin(\theta)
+      \end{array}
+      \label{eq:ellipse2}
+    \end{equation}
+
+    Which corresponds to the polar representation of an ellipse.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{HT for Ellipses}
+\begin{columns}
+\column{0.5\textwidth}
+
+\begin{itemize}
+  \item The location of the centre of the ellipse is given by:
+\begin{equation}
+\begin{array}{c}
+   a_{0}=x-a_{x}\cos(\theta)+b_{x}\sin(\theta) \\
+   b_{0}=x-a_{y}\cos(\theta)+b_{y}\sin(\theta)
+   \end{array}
+\end{equation}
+  %\item The location is dependant of the three parameters
+  \item The mapping defines the trace of a hypersurface in
+    five-dimensional (5D) space $\rightarrow$ \textcolor{blue}{this space can be very
+    large.}
+  \end{itemize}
+
+\column{0.5\textwidth}
+\begin{figure}
+    \pgfuseimage{ellipse}
+    \caption{Definition of ellipse axes.}
+    \label{fig:ellipse}
+  \end{figure}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{HT for other curves?}
+
+\begin{figure}
+\centering
+\pgfuseimage{nefroide}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{}
+
+\begin{figure}
+\centering
+\pgfuseimage
+\end{figure}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Problem 2}
+\begin{itemize}
+\item The idea is to match a \emph{model shape} ("ideal world") against a
+shape in any image.
+\item However, the shape in the image has a different location, orientation
+and scale.
+\end{itemize}
+\end{frame}
+
+
+\end{document}
+
+

@@ -1,0 +1,21 @@
+\frametitle {Implementation}
+  \tiny{\begin{verbatim}
+function [acc] = HTCircle(im,r)
+% im is a binary image
+[rows,columns]=size(im);
+acc=zeros(rows,columns);
+for x=1:columns
+    for y=1:rows
+        if(im(y,x)==1)
+            for ang=0:360
+                t=(ang*pi)/180;
+                x0=round(x-r*cos(t));
+                y0=round(y-r*sin(t));
+                if(x0 < columns && x0 >0 && y0 <rows && y0>0)
+                    acc(y0,x0)=acc(y0,x0)+1; % accumulator is 2D, fixed value of r
+                end
+            end
+        end
+    end
+end\end{verbatim}}
+\textcolor{blue}{Here, only is consider a fixed r!}
