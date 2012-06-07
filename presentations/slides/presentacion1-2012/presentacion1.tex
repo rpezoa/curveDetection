@@ -46,6 +46,10 @@
 \pgfdeclareimage[width=4cm]{fakeImage}{img/fakeImage}
 \pgfdeclareimage[width=5cm]{curve}{img/curve}
 \pgfdeclareimage[width=4.5cm]{ellipse}{img/ellipse}
+\pgfdeclareimage[width=6.5cm]{htGen1}{img/htGen1}
+\pgfdeclareimage[width=6cm]{getPhi1}{img/getPhi1}
+\pgfdeclareimage[width=10cm]{rTable}{img/rTable}
+\pgfdeclareimage[width=9cm]{subC}{img/subCont}
 %nombre de ambientes en español
 %\newtheorem{theorem2}{Teorema}
 %\newtheorem{example2}{Ejemplo}
@@ -288,21 +292,12 @@ $$\begin{bmatrix}x(\theta) \\ y(\theta) \end{bmatrix} = \lambda \begin{bmatrix} 
 
 \begin{figure}
 \centering
-\pgfuseimage{nefroide}
+\pgfuseimage{htGen1}
 \end{figure}
 
 \end{frame}
 
 
-\begin{frame}
-\frametitle{}
-
-\begin{figure}
-\centering
-\pgfuseimage
-\end{figure}
-
-\end{frame}
 
 
 
@@ -317,6 +312,63 @@ and scale.
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}
+  \begin{figure}
+\pgfuseimage{getPhi1}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{The GHT Technique}
+\begin{figure}
+\pgfuseimage{rTable}
+\end{figure}
+  \begin{itemize}
+  \item Given an image point $\omega_{i}$ we have to find a displacement vector $\gamma(\lambda,\rho)$
+  \item $\gamma(\lambda,\rho)$ can be found using
+    $\lambda R(\rho)\upsilon(\theta)$ o $r\exp^{\alpha}$ $\Rightarrow$
+    we need to know the point $\upsilon(\theta)$
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Instead of preivous R-table}
+\begin{itemize}
+\item Idea: To describe a model shape ("ideal world")
+of a digital image in function of its arc length ($s$) and curvature
+($\kappa$), which will be used in the Generalized Hough Transform.
+\item The hipothesis is that this description will be a better alternative
+instead of the R-Table used in the Generalized Hough Transform.
+\item This means to replace the $\hat{\phi}\sp{\prime}_{i}$ of the R-table
+by the arc length ($s$) and to replace the $\gamma=(r,\alpha)$ by the
+curvature ($\kappa$) of the model shape.
+ 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some Problems}
+\begin{itemize}
+\item It is difficult to calculate curvature with discrete points $\Rightarrow$ \textcolor{blue}{to obtain a curve}
+\begin{itemize}
+    \item Splines
+    \item Bsplines
+    \item DFT ("working" on this)
+    \item New subject: Subjective surfaces: 
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\pgfuseimage{subC}
+
+
+Mumford-Shah Functional (criterium for segmentation), level set methods \ldots
+\end{frame}
 
 \end{document}
 
